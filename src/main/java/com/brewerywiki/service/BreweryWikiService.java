@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.brewerywiki.model.AddRequest;
 import com.brewerywiki.model.BrewResponse;
 import com.brewerywiki.model.BreweryResponse;
 import com.brewerywiki.model.Data;
@@ -57,6 +58,23 @@ public class BreweryWikiService {
 		
 		 try {
 			restTemplate.delete("https://sandbox-api.brewerydb.com/v2/brewery/"+breweryId+"/?key=a3c039623e662e0732e5362e5e516f55");
+			response.setStatus("success");
+		} catch (Exception e) {
+			
+			logger.error("Error occured-->"+e);
+
+		}
+		 return response;
+		
+	}
+	
+	public DeleteResponse addBrewery(AddRequest addRequest) {
+		DeleteResponse response=new DeleteResponse();
+		
+		 try {
+			// /breweries
+			 restTemplate.postForLocation("\"https://sandbox-api.brewerydb.com/v2/breweries", addRequest);
+			//restTemplate.delete("https://sandbox-api.brewerydb.com/v2/brewery/"+breweryId+"/?key=a3c039623e662e0732e5362e5e516f55");
 			response.setStatus("success");
 		} catch (Exception e) {
 			

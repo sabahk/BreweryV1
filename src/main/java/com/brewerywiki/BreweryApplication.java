@@ -1,4 +1,4 @@
-package com.javacodegeeks.example;
+package com.brewerywiki;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

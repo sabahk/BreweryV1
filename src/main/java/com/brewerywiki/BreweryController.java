@@ -1,23 +1,24 @@
-package com.javacodegeeks.example;
+package com.brewerywiki;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.brewerywiki.model.AddRequest;
 import com.brewerywiki.model.BrewResponse;
 import com.brewerywiki.model.BreweryResponse;
-import com.brewerywiki.model.Data;
 import com.brewerywiki.model.DeleteRequest;
 import com.brewerywiki.model.DeleteResponse;
 import com.brewerywiki.service.BreweryWikiService;
 
 @RestController
+@CrossOrigin
 public class BreweryController {
 	Logger logger = LoggerFactory.getLogger(BreweryController.class);
 
@@ -51,5 +52,13 @@ public class BreweryController {
 	public DeleteResponse deleteBrewery(@RequestBody DeleteRequest deleteRequest){		
 		return breweryWikiService.deleteBrewery(deleteRequest.getBreweryId());
 		
+	}
+	
+	//To add Brewery
+	@PostMapping("/v1/brewerywiki/add")
+	public DeleteResponse addBrewery(@RequestBody AddRequest addRequest) {
+		DeleteResponse response=new DeleteResponse();
+		response=breweryWikiService.addBrewery(addRequest);
+		return response;
 	}
 }
