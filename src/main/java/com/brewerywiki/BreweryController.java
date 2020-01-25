@@ -21,11 +21,6 @@ import com.brewerywiki.service.BreweryWikiService;
 @CrossOrigin
 public class BreweryController {
 	Logger logger = LoggerFactory.getLogger(BreweryController.class);
-
-	@GetMapping("/hello")
-	public String sayHello() {
-		return "Hello Java Code Geeks!";
-	}
 	
 	//Brew..
 	
@@ -35,10 +30,7 @@ public class BreweryController {
    
 	@GetMapping(value="/v1/brewerywiki/getallinfo/{key}", produces = MediaType.APPLICATION_JSON_VALUE)
 		public BreweryResponse getBreweryInfo(@PathVariable("key") String key){
-		logger.info("key in controller-->"+key);
-		BreweryResponse response=breweryWikiService.getAllBreweryInfo(key);
-		logger.info("response in controller-->"+response);
-			return response;
+		return breweryWikiService.getAllBreweryInfo(key);
 		}
 	
 	 //To Get Brewery Information according to ID
@@ -57,8 +49,6 @@ public class BreweryController {
 	//To add Brewery
 	@PostMapping("/v1/brewerywiki/add")
 	public DeleteResponse addBrewery(@RequestBody AddRequest addRequest) {
-		DeleteResponse response=new DeleteResponse();
-		response=breweryWikiService.addBrewery(addRequest);
-		return response;
+		return breweryWikiService.addBrewery(addRequest);	
 	}
 }
