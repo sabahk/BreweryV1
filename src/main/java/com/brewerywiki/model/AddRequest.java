@@ -7,7 +7,7 @@ public class AddRequest {
 	public String website;
 	public String established;
 	public String mailingListUrl;
-	public boolean isOrganic;
+	public String isOrganic;
 	public String image;
 	public String getName() {
 		return name;
@@ -39,10 +39,10 @@ public class AddRequest {
 	public void setMailingListUrl(String mailingListUrl) {
 		this.mailingListUrl = mailingListUrl;
 	}
-	public boolean isOrganic() {
+	public String isOrganic() {
 		return isOrganic;
 	}
-	public void setOrganic(boolean isOrganic) {
+	public void setOrganic(String isOrganic) {
 		this.isOrganic = isOrganic;
 	}
 	public String getImage() {

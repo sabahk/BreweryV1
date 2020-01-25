@@ -14,6 +14,8 @@ public class Data {
 	private String isOrganic;
 	private Images images;
 	private String status;
+	private String description;
+	private String website;
 	private String statusDisplay;
 	private String createDate;
 	private String updateDate;
@@ -91,6 +93,18 @@ public class Data {
 	}
 	public void setImages(Images images) {
 		this.images = images;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getWebsite() {
+		return website;
+	}
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 	
 	

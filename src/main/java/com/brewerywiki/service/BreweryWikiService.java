@@ -73,7 +73,7 @@ public class BreweryWikiService {
 		
 		 try {
 			// /breweries
-			 restTemplate.postForLocation("\"https://sandbox-api.brewerydb.com/v2/breweries", addRequest);
+			 restTemplate.postForLocation("https://sandbox-api.brewerydb.com/v2/breweries/?key=a3c039623e662e0732e5362e5e516f55", addRequest);
 			//restTemplate.delete("https://sandbox-api.brewerydb.com/v2/brewery/"+breweryId+"/?key=a3c039623e662e0732e5362e5e516f55");
 			response.setStatus("success");
 		} catch (Exception e) {
