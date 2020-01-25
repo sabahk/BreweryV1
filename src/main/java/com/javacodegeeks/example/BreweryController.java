@@ -18,8 +18,8 @@ import com.brewerywiki.model.DeleteResponse;
 import com.brewerywiki.service.BreweryWikiService;
 
 @RestController
-public class HelloWorldController {
-	Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
+public class BreweryController {
+	Logger logger = LoggerFactory.getLogger(BreweryController.class);
 
 	@GetMapping("/hello")
 	public String sayHello() {
